@@ -75,8 +75,6 @@ const handleMenu = function(cmd) {
 
 console.clear();
 console.log('Your todos are:')
-for (const todo of todos) {
-  console.log('* ' + todo.text);
-}
+easyLoop();
 
 displayMenu();

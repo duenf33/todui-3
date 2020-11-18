@@ -30,9 +30,12 @@ const add = function(userInput) {
 
   todos.unshift(todo);
   console.clear();
-  console.log('Your todos are:')
-  for (const todo of todos) {
-    console.log('* ' + todo.text);
+  console.log('Your todos are:\n')
+
+  for(let i = 0; i < todos.length; i++){
+    const todoList = todos[i].text;
+    const ol = i + 1 + '. ';
+    console.log(ol + todoList)
   }
 
   interface.question(menu, handleMenu);

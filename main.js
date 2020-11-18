@@ -20,6 +20,13 @@ Your options are:
 6. Quit.
 
 `;
+const easyLoop = () => {
+  for(let i = 0; i < todos.length; i++){
+  const todoList = todos[i].text;
+  const ol = i + 1 + '. ';
+  console.log(ol + todoList)
+  }
+}
 
 const add = function(userInput) {
   const todo = {
@@ -32,13 +39,9 @@ const add = function(userInput) {
   console.clear();
   console.log('Your todos are:\n')
 
-  for(let i = 0; i < todos.length; i++){
-    const todoList = todos[i].text;
-    const ol = i + 1 + '. ';
-    console.log(ol + todoList)
-  }
-
-  interface.question(menu, handleMenu);
+  easyLoop();
+  displayMenu();
+  // interface.question(menu, handleMenu);
 }
 
 const handleMenu = function(cmd) {
@@ -47,8 +50,8 @@ const handleMenu = function(cmd) {
     interface.question('What todo would you like to add?\n\n', add);
   } else if (cmd === '2') {
     console.clear();
-    console.log(`Feature ${cmd} is still under construction. Sorry!`);
-    interface.question(menu, handleMenu);
+    easyLoop();
+    interface.question("Which todo do you want to remove?", handleMenu);
   } else if (cmd === '3') {
     console.clear();
     console.log(`Feature ${cmd} is still under construction. Sorry!`);
@@ -73,4 +76,7 @@ for (const todo of todos) {
   console.log('* ' + todo.text);
 }
 
+const displayMenu = () => {
 interface.question(menu, handleMenu);
+}
+displayMenu();

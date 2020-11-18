@@ -51,6 +51,7 @@ const add = userInput => {
 const remove = num => {
   console.log('you picked ' + num)
   todos.splice(num - 1, 1);
+  easyLoop();
   displayMenu();
 }
 

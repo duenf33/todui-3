@@ -11,6 +11,8 @@ const interface = readline.createInterface({
 
 
 const easyLoop = () => {
+
+  console.log('\nHere are your current todos:\n')
   for(let i = 0; i < todos.length; i++){
   const todoList = todos[i].text;
   const ol = i + 1 + '. ';
@@ -48,8 +50,7 @@ const add = userInput => {
 
 const remove = num => {
   console.log('you picked ' + num)
-  let newTodos = todos.splice(num + 1, 1);
-  newTodos;
+  todos.splice(num - 1, 1);
   displayMenu();
 }
 

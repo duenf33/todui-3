@@ -9,7 +9,17 @@ const interface = readline.createInterface({
   output: process.stdout
 });
 
-const menu = `
+
+const easyLoop = () => {
+  for(let i = 0; i < todos.length; i++){
+  const todoList = todos[i].text;
+  const ol = i + 1 + '. ';
+  console.log(ol + todoList)
+  }
+}
+
+const displayMenu = () => {
+  const menu = `
 Your options are:
 
 1. Add a todo.
@@ -20,19 +30,10 @@ Your options are:
 6. Quit.
 
 `;
-const easyLoop = () => {
-  for(let i = 0; i < todos.length; i++){
-  const todoList = todos[i].text;
-  const ol = i + 1 + '. ';
-  console.log(ol + todoList)
-  }
+  interface.question(menu, handleMenu);
 }
 
-const displayMenu = () => {
-  displayMenu();
-}
-
-const add = function(userInput) {
+const add = userInput => {
   const todo = {
     text: userInput,
     isComplete: false,
@@ -45,14 +46,21 @@ const add = function(userInput) {
   displayMenu();
 }
 
-const handleMenu = function(cmd) {
+const remove = num => {
+  console.log('you picked ' + num)
+  let newTodos = todos.splice(num + 1, 1);
+  newTodos;
+  displayMenu();
+}
+
+const handleMenu = cmd => {
   if (cmd === '1') {
     console.clear();
     interface.question('What todo would you like to add?\n\n', add);
   } else if (cmd === '2') {
     console.clear();
     easyLoop();
-    interface.question("Which todo do you want to remove?", handleMenu);
+    interface.question("Which todo do you want to remove?\n\n", remove);
   } else if (cmd === '3') {
     console.clear();
     console.log(`Feature ${cmd} is still under construction. Sorry!`);

@@ -29,8 +29,8 @@ const easyLoop = () => {
 }
 
 const displayMenu = () => {
-  interface.question(menu, handleMenu);
-  }
+  displayMenu();
+}
 
 const add = function(userInput) {
   const todo = {
@@ -38,11 +38,9 @@ const add = function(userInput) {
     isComplete: false,
     priority: 2,
   }
-
   todos.unshift(todo);
   console.clear();
   console.log('Your todos are:\n')
-
   easyLoop();
   displayMenu();
 }
@@ -76,5 +74,4 @@ const handleMenu = function(cmd) {
 console.clear();
 console.log('Your todos are:')
 easyLoop();
-
 displayMenu();

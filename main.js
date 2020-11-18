@@ -28,6 +28,10 @@ const easyLoop = () => {
   }
 }
 
+const displayMenu = () => {
+  interface.question(menu, handleMenu);
+  }
+
 const add = function(userInput) {
   const todo = {
     text: userInput,
@@ -41,7 +45,6 @@ const add = function(userInput) {
 
   easyLoop();
   displayMenu();
-  // interface.question(menu, handleMenu);
 }
 
 const handleMenu = function(cmd) {
@@ -55,15 +58,15 @@ const handleMenu = function(cmd) {
   } else if (cmd === '3') {
     console.clear();
     console.log(`Feature ${cmd} is still under construction. Sorry!`);
-    interface.question(menu, handleMenu);
+    displayMenu();
   } else if (cmd === '4') {
     console.clear();
     console.log(`Feature ${cmd} is still under construction. Sorry!`);
-    interface.question(menu, handleMenu);
+    displayMenu();
   } else if (cmd === '5') {
     console.clear();
     console.log(`Feature ${cmd} is still under construction. Sorry!`);
-    interface.question(menu, handleMenu);
+    displayMenu();
   } else {
     console.log('Quitting!');
     interface.close();
@@ -76,7 +79,4 @@ for (const todo of todos) {
   console.log('* ' + todo.text);
 }
 
-const displayMenu = () => {
-interface.question(menu, handleMenu);
-}
 displayMenu();
